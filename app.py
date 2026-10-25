@@ -1,5 +1,3 @@
-Python
-Copy code
 from flask import Flask, request, render_template
 import json
 import os
@@ -35,15 +33,10 @@ def search():
                 str(item.get("title", "")) + " " +
                 str(item.get("text", ""))
             ).lower()
-
             if q in text:
                 results.append(item)
 
-    return render_template(
-        "results.html",
-        query=q,
-        results=results
-    )
+    return render_template("results.html", query=q, results=results)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
